@@ -5,7 +5,7 @@ XSOCK := /tmp/.X11-unix
 XAUTH := /tmp/.docker-xauth
 
 image:
-	docker build -t ${IMAGE_NAME} docker/
+	docker build --no-cache -t ${IMAGE_NAME} docker/
 
 run:
 	xauth nlist ${DISPLAY} | sed -e 's/^..../ffff/' | xauth -f ${XAUTH} nmerge -
